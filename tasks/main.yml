@@ -1,0 +1,18 @@
+
+    - name: Add gluster repository
+      apt_repository: repo="ppa:gluster/glusterfs-3.8" update_cache=yes
+      tags:
+      - gluster
+      become: yes
+
+    - name: Install gluster requirements
+      apt: pkg=python-software-properties
+      tags:
+      - gluster
+      become: yes
+
+    - name: Install gluster
+      apt: pkg=glusterfs-server
+      tags:
+      - gluster
+      become: yes
